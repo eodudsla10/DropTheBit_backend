@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'backend',
-    'frontend',
     'rest_framework',
     'corsheaders',
 ]
@@ -57,7 +56,6 @@ MIDDLEWARE = [
 # CORS 관련 추가
 # CORS란 장고 REST Api와 Frontend단의 CORS 오류가 발생해서 방지하려고 설치
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
     "http://127.0.0.1:8000",
 ]
 
@@ -71,7 +69,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'frontend', 'build'),
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -86,7 +84,7 @@ TEMPLATES = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),
+    os.path.join(BASE_DIR,'static'),
 ]
 
 WSGI_APPLICATION = 'dropthebit.wsgi.application'
