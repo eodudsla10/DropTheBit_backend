@@ -11,6 +11,7 @@ from .main import star_coin, star_market
 from .main.view_table import standard
 from .member import login, mypage, register
 from django.http import HttpResponse
+import json
 
 # http 메소드로 들어오는 get,post 방식에 따라 응답하는 것을 만들거다
 @api_view(['GET'])
@@ -66,10 +67,12 @@ def get_login(request):
 
 @api_view(['POST'])
 def create_user(request):
-    user_id = request.POST['user_id']
-    user_pw = request.POST['user_pw']
-    email = request.POST['email']
-    name = request.POST['name']
+    user_info = json.loads(request.body)['user']
+    user_id = user_info['user_id']
+    user_pw = user_info['user_pw']
+    email = user_info['email']
+    name = user_info['name']
+    print(user_id, user_pw, email, name)
     status = register.create_user(user_id, user_pw, email, name)
     if status == 200:
         return Response(status = 200)
