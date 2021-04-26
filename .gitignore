@@ -1,5 +1,4 @@
 .vscode
-.env
 venv/
 
 # Daeyeong Jeon's gitignore
@@ -30,7 +29,6 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
-.env
 
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
@@ -140,9 +138,7 @@ celerybeat.pid
 
 # Environments
 # .env
-.env/
 .venv/
-env/
 venv/
 ENV/
 env.bak/
