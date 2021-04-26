@@ -1,6 +1,6 @@
 .vscode
 venv/
-
+.env
 # Daeyeong Jeon's gitignore
 # backend/api/market.py
 backend/api/dd.py
