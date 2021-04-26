@@ -1,5 +1,3 @@
-import djongo,json
-from django.http import HttpResponse
 from ..djongoManager import *
 
 # user_id, user_pw, email, name
@@ -15,7 +13,7 @@ def create_user(user_id, user_pw, email, name):
         return 400
     else:
         # insert
-        insert_user_info({'user_id':user_id, 'user_pw':user_pw, 'email':email, 'name':name})
+        insert_user_info(user_id, user_pw, email, name)
         return 200
          
     

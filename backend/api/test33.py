@@ -1,5 +1,6 @@
-import pyupbit
 import ccxt
+import pyupbit
+
 
 def get_coin_up_info():
     dict_market1 ={}

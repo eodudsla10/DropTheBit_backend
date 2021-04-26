@@ -1,35 +1,56 @@
-from .models import User, CoinName, UserFavorite
 from django.core.exceptions import ObjectDoesNotExist
+
+from .models import User, CoinName, UserFavorite
+from .serializer import UserSerializer, CoinNameSerializer
 
 
 def get_user_info(user_id, user_pw=None):
     try:
         if user_pw is not None:
-            return User.objects.get(user_id=user_id, user_pw=user_pw)
-        return User.objects.get(user_id=user_id)
-    except ObjectDoesNotExist: 
-        return None
+            print('login')
+            user = User.objects.get(user_id=user_id, user_pw=user_pw)
+            return UserSerializer(user)
+        else:
+            user = User.objects.get(user_id=user_id)
+            return UserSerializer(user)
+    except ObjectDoesNotExist:
+        return {}
         # return {'user_id': 'default', 'email': 'example.com', 'name': 'anonymous'}
 
 
 def insert_user_info(user_id, user_pw, email, name):
-    query = User.objects.create(
-        user_id=user_id,
-        user_pw=user_pw,
-        name=name,
-        email=email
-    )
-    query.save()
+    data = {
+        'user_id': user_id,
+        'user_pw': user_pw,
+        'email': email,
+        'name': name
+    }
+    user = User()
+    query = UserSerializer(user, data=data)
+    if query.is_valid():
+        query.save()
 
 
 def get_krw_coin_name(coin_name):
-    res = CoinName.objects.get(coin_id=coin_name)
-    return res['name_kr']
+    try:
+        res = CoinName.objects.get(coin_id=coin_name)
+        ser = CoinNameSerializer(res)
+        ret = ser.data["name_kr"]
+    except ObjectDoesNotExist:
+        ret = ""
+
+    return ret
 
 
 def get_eng_coin_name(coin_name):
-    res = CoinName.objects.get(coin_id=coin_name)
-    return res['name_en']
+    try:
+        res = CoinName.objects.get(coin_id=coin_name)
+        ser = CoinNameSerializer(res)
+        ret = ser.data["name_en"]
+    except ObjectDoesNotExist:
+        ret = ""
+
+    return ret
 
 
 def get_standard_market(user_id):

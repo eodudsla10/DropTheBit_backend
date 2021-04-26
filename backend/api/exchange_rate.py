@@ -1,5 +1,7 @@
-import requests, json
 from datetime import datetime
+
+import requests
+
 
 def Exchange_Rate():
     url = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON"

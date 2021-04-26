@@ -12,7 +12,6 @@
 """
 
 from .api import market, exchange_rate
-import json
 from .djongoManager import *
 from .serializer import *
 

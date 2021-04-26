@@ -1,8 +1,4 @@
-import requests, json
-import pyupbit
-import pandas as pd
-from django.shortcuts import render
-from django.http import HttpResponse
+import requests
 
 # 이거 DB에 입력하면 > url_info = {}, coin_info = {} 를 채우는 함수 만들어야 함
 url_info = {

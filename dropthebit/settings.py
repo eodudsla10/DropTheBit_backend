@@ -20,8 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 from decouple import config
+import os
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -56,6 +57,7 @@ MIDDLEWARE = [
 # CORS 관련 추가
 # CORS란 장고 REST Api와 Frontend단의 CORS 오류가 발생해서 방지하려고 설치
 CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
     "http://127.0.0.1:8000",
 ]
 
@@ -68,9 +70,7 @@ import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,9 +83,7 @@ TEMPLATES = [
     },
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
-]
+STATICFILES_DIRS = []
 
 WSGI_APPLICATION = 'dropthebit.wsgi.application'
 

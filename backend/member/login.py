@@ -1,5 +1,3 @@
-import json
-from django.http import HttpResponse
 from ..djongoManager import *
 
 # from MyApplication.MongoDbManager import MongoDbManager

@@ -1,6 +1,7 @@
 .vscode
+.env
 venv/
-https://github.com/eodudsla10/DropTheBit_frontend.git
+
 # Daeyeong Jeon's gitignore
 # backend/api/market.py
 backend/api/dd.py
@@ -29,6 +30,7 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
+.env
 
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
@@ -138,7 +140,9 @@ celerybeat.pid
 
 # Environments
 # .env
+.env/
 .venv/
+env/
 venv/
 ENV/
 env.bak/

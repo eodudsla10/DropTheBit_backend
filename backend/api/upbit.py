@@ -1,10 +1,6 @@
-import requests, json
-import pandas as pd
-import numpy as np
+import json
+import requests
 from pandas.io.json import json_normalize
-from django.shortcuts import render
-from django.http import HttpResponse
-
 
 #url_info = {"upbit" : ["https://api.upbit.com", "/v1/candles/minutes/1" , "market", "KRW-BTC"],
 #"binance" : ["https://api.binance.com", "/api/v3/ticker/price", "symbol", "BTCUSDT"],

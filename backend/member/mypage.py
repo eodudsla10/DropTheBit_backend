@@ -1,5 +1,5 @@
 import json
-from django.http import HttpResponse
+
 from ..djongoManager import *
 
 

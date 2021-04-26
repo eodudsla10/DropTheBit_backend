@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+
 
 def get_news():
     url = "https://project-team.upbit.com/api/v1/disclosure?region=kr&per_page=20"

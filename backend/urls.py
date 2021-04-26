@@ -1,5 +1,7 @@
 from django.urls import path
+
 from . import views
+
 urlpatterns = [
     path('main/', views.get_all_coin_info, name="get_all_coin_info"),
     path('news/', views.get_news_info, name="get_news_info"),
